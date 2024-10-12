@@ -1,5 +1,5 @@
 # Bricks
-A classic game where the player has to break all the bricks to win.
+A classic game where the player has to break all the bricks to win. (PC version only)
 
 This project was made from scratch based on the classic game "Brick Breaker" for learning purposes only, as part of my own programming learning path. 
 
