@@ -1,0 +1,362 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100vw;
+  height: 100vh;
+  font-family: cursive;
+  font-size: 1.4rem;
+  background-color: aliceblue
+}
+
+#starting-screen {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: aliceblue;
+  z-index: 3;  
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+#starting-screen .game-name {    
+  font-family: "Rubik Doodle Shadow", system-ui;
+  font-size: 100px;
+  color: brown;
+  position: relative;
+}
+
+#starting-screen .game-name::after {
+  content: "";
+  border:2px solid brown;
+  border-radius: 50%;
+  width: 100%;
+  height: 20%;
+  position: absolute;
+  bottom: -50px;
+  left: 0;
+  background-color: rgba(165, 42, 42, 0.3);
+  /* border-top: none; */
+}
+
+#starting-screen #start-game {
+  font-family: cursive;
+  font-size: 20px;
+  color: brown;
+  position: relative;
+  margin-top: 120px;
+  outline: none;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+  animation: startScale 3s infinite ease-in-out;
+}
+
+@keyframes startScale {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.container{
+  margin-top: -15px;
+  margin-bottom: 5px;
+  width: 1024px;
+  max-width: 85%;
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+}
+
+.lives {  
+  width: 1024px;
+  max-width: 85%;
+  text-align: start;
+}
+
+.lives i {
+  color: red;
+} 
+
+.container p {
+  width: 33%;
+}
+
+.container p.score {
+  text-align: start;
+}
+.container p#time {
+  text-align: center;
+  font-size: 1.8rem;
+}
+.container p.max-score {
+  text-align: end;
+}
+
+canvas {
+  max-width: 85%;
+  max-height: 85%;
+  border: 2px solid blue;
+}
+
+.results {
+  display: none;
+  position: absolute;
+  z-index: 1;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  width: 500px;
+  aspect-ratio: 5/4;
+  max-width: 50%;;
+  max-height: 50%;
+  border: 1px solid #111;
+  border-radius: 10px;
+  background-color: #444;
+  color: #ccc;
+  text-align: center;
+  font-size: 1.8rem;
+  text-shadow: 2px 2px 4px black;
+  box-shadow: 1px 1px 8px 4px rgba(0, 0, 0, 0.3);
+}
+
+.results #win-lose{
+  font-size: 5rem;
+}
+
+.results #next-level {
+  font-size: 3rem;
+  cursor: pointer;
+  border: none;
+  background: none;
+  outline: none;
+  color: #ccc;
+  text-shadow: 2px 2px 4px black;
+}
+
+.info {
+  display: none;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  z-index: 1;
+  width: 500px;
+  aspect-ratio: 5/4;
+  max-width: 50%;
+  max-height: 50%;
+  border: 1px solid #111;
+  border-radius: 10px;
+  background-color: #ccc;
+  color: #444;
+  text-align: center;
+  line-height: 40px;
+  font-size: 1.4rem;
+  box-shadow: 1px 1px 8px 4px rgba(0, 0, 0, 0.3);
+  overflow: auto;
+}
+
+.info-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.info .controls {
+  display: none;
+  flex-direction: column;
+  align-self: self-start;
+  margin-top: 25px;
+  line-height: 30px;
+}
+
+.info .powers {
+  display: none;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-left: 20px;
+  transform: translateY(-20px);
+}
+
+.info .music-volume {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.info .info-buttons {
+  display: flex;
+  flex-direction: column;
+}
+
+.info .info-button {
+  width: 100%;
+  font-size: inherit;
+  color: inherit;
+  font-family: inherit;
+  background-color: transparent;
+  border: none;
+  outline: none;
+  margin-bottom: 15px;
+  cursor: pointer;
+  text-shadow: 0 0 1px rgba(0, 0, 0, 0.7);
+}
+
+.info .info-button:hover {
+  font-weight: bold;
+  color:white;  
+  text-shadow: 0 0 3px black;
+}
+
+.v-squares{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.v-squares button {
+  width: 20px;
+  height: 20px;
+  margin: 0 3px 5px 5px;
+  border-radius: 50%;
+  text-align: center;  
+  background-color: transparent;
+  border: none;
+  outline: none;
+  color: black; 
+  font-size: 1.4rem;
+  cursor: pointer;
+}
+
+.volume-square {
+  margin: 0 1px;
+  width: 12px;
+  height: 23px;
+  border: 1px solid #444;
+}
+
+.info .resume {
+  position: absolute;
+  bottom: 20px;
+  width: 100%;  
+  text-shadow: 0 0 1px rgba(0, 0, 0, 0.7);
+}
+
+.info #return-menu {
+  display: none;
+  color: black;
+  position: absolute;
+  top: 5px;
+  left: 15px;
+  cursor: pointer;
+}
+
+
+
+@media screen and (max-width: 950px) {
+
+  .results #win-lose {
+    font-size: 3.5rem;
+  }
+
+  .results {
+    font-size: 1.5rem;
+  }
+
+  .results #next-level {
+    font-size: 2rem;
+  }
+
+  .info {
+    font-size: 1.1rem;
+    line-height: 30px;
+  }
+
+  .info .controls {
+    line-height: 20px;
+  }
+}
+
+@media screen and (max-width: 620px) {
+
+  .container {
+    margin-top: 0;
+  }
+  
+  .results {
+    font-size: 1.1rem;
+  }
+
+  .results #win-lose {
+    font-size: 2rem;
+  }
+
+  .results #next-level {
+    font-size: 1.5rem;
+  }
+
+  .info {
+    font-size: 0.9rem;    
+    line-height: 20px;
+  }
+
+  .info .controls {
+    line-height: 15px;
+  }
+
+}
+
+@media screen and ((max-width: 576px) or (max-height: 576px)){
+
+  .lives {
+    margin-bottom: -10px;
+  }
+
+  body {
+    font-size: 0.9rem;
+  }
+
+  .container p#time {
+    font-size: 1.2rem;
+  }
+
+  .results {
+    font-size: 0.9rem;
+  }
+
+  .results #win-lose {
+    font-size: 1.5rem;
+  }
+
+  .results #next-level {
+    font-size: 1.2rem;
+  }
+
+  .info {
+    font-size: 0.75rem;     
+    line-height: 15px;
+  }
+
+  .info .controls {
+    line-height: 12px;
+  }
+}

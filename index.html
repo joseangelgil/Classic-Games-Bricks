@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bricks</title>
+  <link rel="icon" href="img/icon/favicon-16x16.png">
+  <link rel="stylesheet" href="styles.css">
+  <script src="https://kit.fontawesome.com/a81630231c.js" crossorigin="anonymous"></script>
+  <script src="clases.js"></script>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Rubik+Doodle+Shadow&display=swap" rel="stylesheet">
+
+</head>
+<body>
+  <div id="starting-screen">
+    <p class="game-name">BRICKS</p>
+    <button id="start-game">START GAME</button>
+  </div>
+  <div class="lives">
+    <i id="v1" class="fa-solid fa-heart"></i>
+    <i id="v2" class="fa-solid fa-heart"></i>
+    <i id="v3" class="fa-solid fa-heart"></i>
+  </div>
+  <div class="container">
+    <p class="score">Score: <span id="score">0</span></p>
+    <p id="time">150</p>
+    <p class="max-score">Max: <span id="max-score">1000</span></p>
+  </div>
+  <canvas></canvas>
+  <div id="results" class="results">
+    <p id="win-lose">YOU WIN</p>
+    <p>Score: <span id="final-score"></span></p>
+    <button id="next-level" disabled="true">Next Level</button>
+  </div>
+  <div id="info" class="info">
+    <div class="info-container">
+      <div id="info-buttons" class="info-buttons">
+        <button class="info-button" id="info-controls">Controls</button>
+        <button class="info-button" id="info-powers">Powers</button>
+        <button class="info-button" id="info-music-volume">Music Volume</button> 
+        <button class="info-button" id="exit-game">Exit Game</button>
+      </div>
+      <div id="controls" class="controls">
+        <p>ArrowRight -> Move to the right</p>
+        <p>ArrowLeft -> Move to the left</p>
+        <p>D -> Start ball movement to the right</p>
+        <p>A -> Start ball movement to the left</p>
+        <p>ArrowUp -> Shoot (only during powerUp)</p>
+        <p>S -> Sound On/Off</p>
+        <p>M -> Music On/Off</p>
+        <p><strong>-</strong> -> Music volume down</p>
+        <p><strong>+</strong> -> Music volume up</p>
+        <p>SpaceBar -> Pause/Resume</p>
+      </div>
+      <div id="powers" class="powers">
+        <p><span style="color: blue">Blue</span> -> Double paddle width</p>
+        <p><span style="color: green">Green</span> -> Sticky paddle</p>
+        <p><span style="color: purple">Purple</span> -> Half paddle width + powerUp</p>
+        <p><span style="color: yellow">Yellow</span> -> Extra ball</p>
+        <p>Power duration -> 10s</p>
+      </div>
+      <div id="music-volume" class="music-volume">
+        <p>Volume</p>
+        <p class="v-squares">
+          <button id="reduce-volume">-</button>
+          <span class="volume-square"></span>
+          <span class="volume-square"></span>
+          <span class="volume-square"></span>
+          <span class="volume-square"></span>
+          <span class="volume-square"></span>
+          <span class="volume-square"></span>
+          <span class="volume-square"></span>
+          <span class="volume-square"></span>
+          <span class="volume-square"></span>
+          <span class="volume-square"></span>
+          <button id="increment-volume">+</button>
+        </p>
+      </div>
+      <p id="return-menu">&#8678;</p>      
+      <p class="resume">Press SpaceBar to resume the game!</p>
+    </div>
+  </div>
+  <script src="audio.js"></script>
+  <script src="abilities.js"></script>
+  <script src="levels.js"></script>
+  <script src="collisions.js"></script>
+  <script src="results.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
